@@ -12,6 +12,7 @@ s.penup()
 
 s.setheading(225)
 s.forward(300)
+
 s.setheading(0)
 
 s.hideturtle()
