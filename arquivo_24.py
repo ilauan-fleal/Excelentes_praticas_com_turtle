@@ -6,8 +6,9 @@
 from turtle import *
 
 n =  Turtle()
-
-m = 3 #Número de lados!
+d = Screen()
+d.bgcolor("pink")
+m = 10 #Número de lados!
 
 n.color("blue")
 n.pensize(16)
@@ -18,6 +19,5 @@ for _ in range(m):
     n.left(angulo)
 
 
-d = Screen()
-d.bgcolor("yellow")
+
 d.exitonclick()
