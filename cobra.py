@@ -14,16 +14,25 @@ DIREITA = 0
 
 
 
-class Cobra:
+class Cobra(Turtle):
     def __init__(self):
+        super().__init__()
+        self.hideturtle()
+        self.speed("fastest")
         self.caminhos = []
         self.criar_cobra()  #Chamada do método , criado abaixo!
         self.cabeca = self.caminhos[0]
+    
     #Método para criar o formato de cobra
-
-
+    
     def criar_cobra(self):
-        for x in POSICOES_INICIAIS:
+        for n in POSICOES_INICIAIS:
+            self.adicionar_segmento(n)
+
+    #Método, para adicionar caminho(segmento):     
+
+    def adicionar_segmento(self, x):
+
             novo_caminho = Turtle("square")
             novo_caminho.color("yellow")
             novo_caminho.penup()
@@ -41,6 +50,10 @@ class Cobra:
             self.caminhos[y].goto(novo_x, novo_y)
         self.caminhos[0].forward(DISTANCIA)
 
+    def extensao(self):
+        self.adicionar_segmento(self.caminhos[-1].position())
+    
+    
     #Função, para mover cobra para cima:
 
     def Cima(self):
@@ -70,5 +83,12 @@ class Cobra:
     def Direita(self):
         if self.cabeca.heading() !=  ESQUERDA:
             self.cabeca.setheading(DIREITA)
+    
+    def resetar(self):
+        for x in self.caminhos:
+            x.goto(1000,1000)
+        self.caminhos.clear()
+        self.criar_cobra()
+        self.cabeca = self.caminhos[0]
 
 

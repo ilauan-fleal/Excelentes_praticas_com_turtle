@@ -38,11 +38,12 @@ jogo_ligado = True
 
 while jogo_ligado:
     
-    time.sleep(0.1)
+    time.sleep(0.001)
     c.mover_cobra()
    
     if c.cabeca.distance(ca) < 15:
         ca.atualizar()
+        c.extensao()
         r.elevar_recorde() 
 
 
@@ -50,6 +51,12 @@ while jogo_ligado:
        
         
            
-        jogo_ligado = False
-        r.fim_de_jogo()
+        r.resetar_jogo()
+        c.resetar()
        # print("Game Over")
+    for w in c.caminhos:
+        if w == c.cabeca:
+            pass
+        elif c.cabeca.distance(w) < 10:
+            r.resetar_jogo()
+            c.resetar()
