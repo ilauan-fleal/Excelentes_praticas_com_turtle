@@ -32,7 +32,7 @@ class Recorde(Turtle):
         if self.recorde > self.recorde_mais_alto:
             self.recorde_mais_alto = self.recorde
             with open("dados.txt", "w") as dados:
-                dados.write(f"{self.recorde_mais_alto}.")
+                dados.write(f"{self.recorde_mais_alto}")
         self.recorde = 0
         self.atualizar_recorde()
         
